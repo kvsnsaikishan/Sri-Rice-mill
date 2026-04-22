@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sri Rice Mill</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+    font-family:Arial, sans-serif;
+    line-height:1.6;
+    scroll-behavior:smooth;
+}
+
+/* ===== PREMIUM NAVBAR ===== */
+nav{
+    position:fixed;
+    width:100%;
+    top:0;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 40px;
+    z-index:1000;
+
+    background:rgba(255,255,255,0.6);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    transition:all 0.3s ease;
+}
+
+nav.scrolled{
+    padding:10px 40px;
+    background:rgba(255,255,255,0.9);
+    box-shadow:0 5px 20px rgba(0,0,0,0.15);
+}
+
+nav h2{
+    color:#2e7d32;
+    font-weight:bold;
+    white-space:nowrap;
+}
+
+/* MENU */
+nav ul{
+    display:flex;
+    gap:25px;
+    list-style:none;
+}
+
+nav a{
+    position:relative;
+    text-decoration:none;
+    color:#333;
+    font-weight:600;
+}
+
+/* UNDERLINE ANIMATION */
+nav a::after{
+    content:'';
+    position:absolute;
+    left:0;
+    bottom:-5px;
+    width:0%;
+    height:2px;
+    background:#2e7d32;
+    transition:0.3s;
+}
+
+nav a:hover::after{
+    width:100%;
+}
+
+/* HERO */
+.hero{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+    color:white;
+    text-align:center;
+}
+
+.hero::before{
+    content:'';
+    position:absolute;
+    width:100%;
+    height:100%;
+    background-size:cover;
+    background-position:center;
+    animation:heroSlider 10s infinite;
+    filter:brightness(0.6);
+}
+
+@keyframes heroSlider{
+    0%,45%{
+        background-image:url('https://ecostat.kerala.gov.in/storage/images/6539.jpg');
+    }
+    50%,100%{
+        background-image:url('https://d2twytt84wkqrt.cloudfront.net/wp-content/uploads/2023/12/8-10-Specialists_Rice-outlook-harvest-2-scaled.jpg');
+    }
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+}
+
+.hero h1{font-size:48px;}
+.hero p{margin:15px 0;font-size:18px;}
+
+.btn{
+    display:inline-block;
+    margin-top:10px;
+    padding:12px 25px;
+    background:#2e7d32;
+    color:white;
+    border-radius:5px;
+    text-decoration:none;
+}
+
+/* SECTION */
+section{
+    padding:80px 40px;
+}
+
+h2{
+    text-align:center;
+    color:#2e7d32;
+    margin-bottom:30px;
+}
+
+/* ABOUT */
+.about{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+    align-items:center;
+}
+
+.about img{
+    width:100%;
+    border-radius:10px;
+}
+
+/* GRID */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+/* CARD */
+.card{
+    background:white;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transition:transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.card:hover{
+    transform:translateY(-10px) scale(1.03);
+    box-shadow:0 15px 40px rgba(0,0,0,0.2);
+}
+
+.card img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+}
+
+.card-text{
+    padding:15px;
+}
+
+/* CTA */
+.cta{
+    background:#2e7d32;
+    color:white;
+    text-align:center;
+    padding:40px 20px;
+}
+
+/* CONTACT */
+.contact{
+    text-align:center;
+}
+
+/* WHATSAPP */
+.whatsapp{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+}
+
+/* FOOTER */
+footer{
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:15px;
+}
+
+/* ANIMATION */
+.reveal{
+    opacity:0;
+    transform:translateY(80px) scale(0.95);
+    transition:all 0.8s cubic-bezier(0.23,1,0.32,1);
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0) scale(1);
+}
+
+.grid .card:nth-child(1){ transition-delay:0.1s; }
+.grid .card:nth-child(2){ transition-delay:0.2s; }
+.grid .card:nth-child(3){ transition-delay:0.3s; }
+.grid .card:nth-child(4){ transition-delay:0.4s; }
+
+</style>
+</head>
+
+<body>
+
+<nav>
+<h2>Sri Rice Mill</h2>
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#products">Products</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<section class="hero reveal" id="home">
+<div class="hero-content">
+<h1>Quality Rice You Can Trust</h1>
+<p>Supplying Premium Rice Across Prakasam & India</p>
+<a href="https://wa.me/91987654321" class="btn">Order on WhatsApp</a>
+</div>
+</section>
+
+<section id="about" class="reveal">
+<h2>About Us</h2>
+<div class="about">
+<div>
+<p>Sri Rice Mill specializes in supplying high-quality rice including 74, Jilakara, and Broken Rice.</p>
+<br>
+<p>We provide bulk supply for events, industries, and businesses with reliable delivery.</p>
+</div>
+<img src="https://5.imimg.com/data5/SELLER/Default/2021/7/NH/RW/TG/81343250/fully-automatic-3-ton-plant-complete.jpg">
+</div>
+</section>
+
+<section id="products" class="reveal">
+<h2>Our Products</h2>
+<div class="grid">
+<div class="card reveal"><img src="https://4.imimg.com/data4/ON/FK/ANDROID-71603634/product-500x500.jpeg"><div class="card-text"><h3>74 Rice</h3><p>Daily consumption rice with consistent quality.</p></div></div>
+<div class="card reveal"><img src="https://5.imimg.com/data5/SELLER/Default/2025/8/536686024/HG/ND/XX/72102656/jilakara-masoori-rice.jpg"><div class="card-text"><h3>Jilakara Rice</h3><p>Premium fine grain rice.</p></div></div>
+<div class="card reveal"><img src="https://cpimg.tistatic.com/11001797/b/4/Broken-Rice..jpg"><div class="card-text"><h3>Broken Rice</h3><p>Used in poultry and industries.</p></div></div>
+</div>
+</section>
+
+<section id="services" class="reveal">
+<h2>Our Services</h2>
+<div class="grid">
+<div class="card reveal"><img src="https://bestcateringinabudhabi.com/blog/wp-content/uploads/2025/06/holiday-buffet.jpg"><div class="card-text"><h3>Event Supply</h3><p>Bulk rice supply for weddings and functions.</p></div></div>
+<div class="card reveal"><img src="https://blog.pwskills.com/wp-content/uploads/2025/07/screenshot-2025-07-26-at-121714-pm-68847a465d27a.webp"><div class="card-text"><h3>Delivery</h3><p>Reliable delivery across districts and India.</p></div></div>
+<div class="card reveal"><img src="https://media.istockphoto.com/id/1732923370/photo/holding-rice-husk-in-hand-closeup-view-selective-focus.jpg"><div class="card-text"><h3>Pottu Supply</h3><p>For power plants and brick manufacturing.</p></div></div>
+<div class="card reveal"><img src="https://static.agriculture-machine.com/wp-content/uploads/2018/10/Rice-milling-plant-machine-.webp"><div class="card-text"><h3>Rice Milling</h3><p>Modern paddy processing solutions.</p></div></div>
+</div>
+</section>
+
+<section class="cta reveal">
+<h2>Need Bulk Rice Supply?</h2>
+<p>Contact us today for best quality and pricing</p>
+<a href="https://wa.me/919876543210" class="btn">Contact Now</a>
+</section>
+
+<section id="contact" class="contact reveal">
+<h2>Contact</h2>
+<p>Singarayakonda Trunk Road</p>
+<p>📞 9876543210</p>
+</section>
+
+<a class="whatsapp" href="https://wa.me/919876543210" target="_blank">
+<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" width="60">
+</a>
+
+<footer>© Sri Rice Mill</footer>
+
+<script>
+function revealOnScroll(){
+    const reveals=document.querySelectorAll(".reveal");
+    reveals.forEach(el=>{
+        if(el.getBoundingClientRect().top < window.innerHeight-100){
+            el.classList.add("active");
+        }
+    });
+}
+
+window.addEventListener("scroll",revealOnScroll);
+window.addEventListener("load",revealOnScroll);
+
+/* NAV SCROLL EFFECT */
+window.addEventListener("scroll",function(){
+    document.querySelector("nav").classList.toggle("scrolled",window.scrollY>50);
+});
+</script>
+
+</body>
+</html>
